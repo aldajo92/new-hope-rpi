@@ -14,7 +14,7 @@ serial_port = connect()
 try:
     while True:
         serial_port.write("hello" + "\r\n")
-        print "hello"
+        # print "hello"
         time.sleep(0.5)
 
 except KeyboardInterrupt:
