@@ -27,9 +27,10 @@ string = to_b_64(read_image('messi'))
 splitted = string.split("\n")
 
 try:
-    for s in splitted:
-        serial_port.write(s + "\r\n")
-        # print s
+    serial_port.write(string)
+    # for s in splitted:
+    #     serial_port.write(s + "\r\n")
+    #     # print s
 
 except KeyboardInterrupt:
     print "closing..."

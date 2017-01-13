@@ -12,6 +12,7 @@ def connect():
 serial_port = connect()
 
 try:
+
     while True:
         serial_port.write("hello" + "\r\n")
         # print "hello"
