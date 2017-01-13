@@ -1,7 +1,7 @@
 import serial
 import time
 
-PORT = "/dev/cu.usbmodem1421"
+PORT = "/dev/ttyAMA0"
 BAUD = 115200
 
 
@@ -9,11 +9,11 @@ def connect():
     return serial.Serial(PORT, BAUD)
 
 
-# serial_port = connect()
+serial_port = connect()
 
 try:
     while True:
-        # serial_port.write("hello" + "\r\n")
+        serial_port.write("hello" + "\r\n")
         print "hello"
         time.sleep(0.5)
 
