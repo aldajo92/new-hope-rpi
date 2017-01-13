@@ -28,7 +28,7 @@ splitted = string.split("\n")
 
 try:
     for s in splitted:
-        serial_port.write(s + "\r\n")
+        serial_port.write(s + "\n")
         print s
 
 except KeyboardInterrupt:
