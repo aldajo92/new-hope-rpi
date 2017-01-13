@@ -4,7 +4,7 @@ import base64
 import cv2
 
 PORT = "/dev/ttyAMA0"
-BAUD = 115200
+BAUD = 460800
 
 
 def connect():
