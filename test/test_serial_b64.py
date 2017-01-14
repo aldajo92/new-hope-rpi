@@ -22,9 +22,9 @@ serial_port.flushOutput()
 img_str = to_b_64('messi')
 
 try:
-    # img_str += "\r\n"
+    img_str += "\r\n"
     print "sending..."
-    serial_port.write("IMG|" + str(len(img_str)) + "\n")
+    # serial_port.write("IMG|" + str(len(img_str)) + "\n")
     serial_port.write(img_str)
     print img_str
 
