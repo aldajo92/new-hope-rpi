@@ -7,6 +7,10 @@ BAUD = 460800
 serial_port = None
 
 thread = None
+image_buffer = ""
+
+
+
 
 
 def read_from_port():
