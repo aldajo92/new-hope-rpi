@@ -15,7 +15,7 @@ GPIO.setup(INPUT_3, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(INPUT_4, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 PORT = "/dev/ttyAMA0"
-BAUD = 9600
+BAUD = 460800
 serial_port = None
 
 
