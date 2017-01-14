@@ -49,5 +49,6 @@ the next wguide help us to modify the events on python:
 
 ![alt tag](http://www.electronics-lab.com/wp-content/uploads/2014/07/GPIO.png)
 
-### Bluetooth module in at mode
+### Bluetooth module in at mode to change baud rate
+http://fab.cba.mit.edu/classes/863.15/doc/tutorials/programming/bluetooth.html
 http://www.martyncurrey.com/arduino-with-hc-05-bluetooth-module-at-mode/
