@@ -38,12 +38,14 @@ Install after serial communication library:
 
 ### Rpi pins
 We are using the following pins on Raspberry Pi:
-INPUT_1 = 11
-INPUT_2 = 12
-INPUT_3 = 13
-INPUT_4 = 15
-RX = 8
-TX = 10
+* INPUT_1 = 11
+* INPUT_2 = 12
+* INPUT_3 = 13
+* INPUT_4 = 15
+* TX = 8
+* RX = 10
+
+the next wguide help us to modify the events on python:
 
 ![alt tag](http://www.electronics-lab.com/wp-content/uploads/2014/07/GPIO.png)
 
