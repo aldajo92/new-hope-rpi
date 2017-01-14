@@ -36,15 +36,15 @@ def my_callback_1(channel):
 
 
 def my_callback_2(channel):
-    send_data_ln("Feature2")
+    send_data_ln("Feature4")
 
 
 def my_callback_3(channel):
-    send_data_ln("Feature3")
+    send_data_ln("Feature2")
 
 
 def my_callback_4(channel):
-    send_data_ln("Feature4")
+    send_data_ln("Feature3")
 
 
 GPIO.add_event_detect(INPUT_1, GPIO.RISING, callback=my_callback_1, bouncetime=300)
