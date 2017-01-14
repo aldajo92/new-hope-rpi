@@ -24,7 +24,8 @@ serial_port = connect()
 serial_port.flushInput()
 serial_port.flushOutput()
 # string = to_b_64(read_image('messi'))
-string = read_image('messi')
+image = read_image('messi')
+img_str = cv2.imencode('.jpg', image)[1].tostring()
 # string_split = string.split("\n")
 
 try:
@@ -33,10 +34,10 @@ try:
     #     string_send += s
         # serial_port.write(s + "\r\n")
     #     # print s
-    string += "\r\n"
+    img_str += "\r\n"
     print "sending..."
-    serial_port.write(string)
-    print string
+    serial_port.write(img_str)
+    print img_str
 
 except KeyboardInterrupt:
     print "closing..."
