@@ -1,7 +1,9 @@
 import RPi.GPIO as GPIO
 import time
 import serial
+import base64
 import pi_capture
+import requests
 
 INPUT_1 = 11
 INPUT_2 = 12
@@ -18,6 +20,7 @@ GPIO.setup(INPUT_4, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 PORT = "/dev/ttyAMA0"
 BAUD = 230400
 serial_port = None
+BASE_URL = "https://the-skywalkers.herokuapp.com"
 
 
 def connect():
@@ -34,7 +37,10 @@ def send_data_ln(string_data):
 
 def my_callback_1(channel):
     pi_capture.capture_string_b64()
-    print("Feature1")
+    img_str = to_b_64('taked')
+    str_response = encode_feature_1(post_image(img_str))
+    print(str_response)
+    # print("Feature1")
 
 
 def my_callback_2(channel):
@@ -49,15 +55,34 @@ def my_callback_4(channel):
     send_data_ln("Feature3")
 
 
-GPIO.add_event_detect(INPUT_1, GPIO.RISING, callback=my_callback_1, bouncetime=300)
-GPIO.add_event_detect(INPUT_2, GPIO.RISING, callback=my_callback_2, bouncetime=300)
-GPIO.add_event_detect(INPUT_3, GPIO.RISING, callback=my_callback_3, bouncetime=300)
-GPIO.add_event_detect(INPUT_4, GPIO.RISING, callback=my_callback_4, bouncetime=300)
+def encode_feature_1(value):
+    return "Feature1" + value
+
+
+def to_b_64(name):
+    with open(name + '.jpg', "rb") as image_file:
+        encoded_string = base64.b64encode(image_file.read())
+    return encoded_string
+
+
+def post_image(image_str):
+    url = BASE_URL + "/api/v1/image"
+    data = {'id': 'abc123', 'base64': image_str}
+    headers = {'Content-type': 'application/json'}
+    response = requests.post(url, data, headers).content
+    return response
+
+
+GPIO.add_event_detect(INPUT_1, GPIO.RISING, callback=my_callback_1, bouncetime=500)
+GPIO.add_event_detect(INPUT_2, GPIO.RISING, callback=my_callback_2, bouncetime=500)
+GPIO.add_event_detect(INPUT_3, GPIO.RISING, callback=my_callback_3, bouncetime=500)
+GPIO.add_event_detect(INPUT_4, GPIO.RISING, callback=my_callback_4, bouncetime=500)
 
 try:
     serial_port = connect()
     serial_port.flushInput()
     serial_port.flushOutput()
+
     print "press something"
     while True:
         # print "hello"
