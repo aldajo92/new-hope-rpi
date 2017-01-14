@@ -1,7 +1,7 @@
 import requests
 import base64
 import serial
-import RPi.GPIO as GPIO
+# import RPi.GPIO as GPIO
 
 PORT = "/dev/ttyAMA0"
 BAUD = 230400
@@ -43,15 +43,13 @@ def post_image(image_str):
 
 
 try:
-    serial_port = connect()
-    serial_port.flushInput()
-    serial_port.flushOutput()
-
+    # serial_port = connect()
+    # serial_port.flushInput()
+    # serial_port.flushOutput()
     str_response = encode_feature_1(post_image(img_str))
-
-    send_data_ln(str_response)
+    # send_data_ln(str_response)
     print str_response
 except KeyboardInterrupt:
-    GPIO.cleanup()  # clean up GPIO on CTRL+C exit
+    # GPIO.cleanup()  # clean up GPIO on CTRL+C exit
     serial_port.close()
-GPIO.cleanup()  # clean up GPIO on normal exit
+# GPIO.cleanup()  # clean up GPIO on normal exit
