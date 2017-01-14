@@ -1,4 +1,3 @@
-import cv2
 import base64
 import serial
 import time
@@ -20,23 +19,17 @@ def send_data_ln(string_data):
     send_data(string_data + "\n")
 
 
-def read_image(name):
-    return cv2.imread(name + '.jpg')
-
-
-def to_b_64(frame):
-    cnt = cv2.imencode('.png', frame)[1]
-    return base64.encodestring(cnt)
+def to_b_64(name):
+    with open(name + '.jpg', "rb") as image_file:
+        encoded_string = base64.b64encode(image_file.read())
+    return encoded_string
 
 
 serial_port = connect()
 serial_port.flushInput()
 serial_port.flushOutput()
-string = to_b_64(read_image('messi'))
-splitted = string.split("\n")
-# for i in range(0, 2):
-#     serial_port.write(splitted[i] + "\r\n")
-#     time.sleep(2)
+image_string = to_b_64('messi')
+
 counter = 0
 for s in splitted:
     serial_port.write(s + "\r\n")
