@@ -34,7 +34,7 @@ try:
     #     string_send += s
         # serial_port.write(s + "\r\n")
     #     # print s
-    # img_str += "\r\n"
+    img_str += "\r\n"
     print "sending..."
     serial_port.write(img_str)
     print img_str
