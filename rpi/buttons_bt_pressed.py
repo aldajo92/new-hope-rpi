@@ -28,7 +28,7 @@ def send_data(string_data):
 
 
 def send_data_ln(string_data):
-    send_data(string_data + "\r\n")
+    send_data(string_data + "\n")
 
 
 def my_callback_1(channel):
