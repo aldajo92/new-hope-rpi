@@ -4,7 +4,7 @@ import base64
 import cv2
 
 PORT = "/dev/ttyAMA0"
-BAUD = 460800
+BAUD = 230400
 
 
 def connect():
@@ -27,9 +27,9 @@ string = to_b_64(read_image('messi'))
 string_split = string.split("\n")
 
 try:
-    # serial_port.write(string)
-    for s in string_split:
-        serial_port.write(s + "\r\n")
+    serial_port.write(string + "\r\n")
+    # for s in string_split:
+    #     serial_port.write(s + "\r\n")
     #     # print s
 
 except KeyboardInterrupt:
