@@ -34,7 +34,7 @@ def send_data_ln(string_data):
 
 def my_callback_1(channel):
     pi_capture.capture_string_b64()
-    send_data_ln("Feature1")
+    print("Feature1")
 
 
 def my_callback_2(channel):
