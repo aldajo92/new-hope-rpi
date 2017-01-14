@@ -39,8 +39,8 @@ def my_callback_1(channel):
     pi_capture.capture_string_b64()
     img_str = to_b_64('taked')
     str_response = encode_feature_1(post_image(img_str))
-    print(str_response)
-    # print("Feature1")
+    send_data_ln(str_response)
+    print("Feature1")
 
 
 def my_callback_2(channel):
