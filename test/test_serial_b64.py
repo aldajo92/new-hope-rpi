@@ -3,7 +3,7 @@ import time
 import base64
 
 PORT = "/dev/ttyAMA0"
-BAUD = 460800 #230400
+BAUD = 230400 #460800
 
 
 def connect():
