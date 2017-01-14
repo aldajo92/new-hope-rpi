@@ -38,4 +38,3 @@ try:
     print "press something"
 except KeyboardInterrupt:
     GPIO.cleanup()  # clean up GPIO on CTRL+C exit
-GPIO.cleanup()  # clean up GPIO on normal exit
