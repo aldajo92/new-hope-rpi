@@ -15,19 +15,19 @@ GPIO.setup(INPUT_4, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 
 def my_callback_1(channel):
-    print "falling edge detected on 17"
+    print "Feature1"
 
 
 def my_callback_2(channel):
-    print "falling edge detected on 23"
+    print "Feature2"
 
 
 def my_callback_3(channel):
-    print "falling edge detected on 23"
+    print "Feature3"
 
 
 def my_callback_4(channel):
-    print "falling edge detected on 23"
+    print "Feature4"
 
 
 GPIO.add_event_detect(INPUT_1, GPIO.RISING, callback=my_callback_1, bouncetime=300)
