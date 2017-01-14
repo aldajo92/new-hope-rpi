@@ -1,4 +1,5 @@
 import RPi.GPIO as GPIO
+import time
 
 INPUT_1 = 11
 INPUT_2 = 12
@@ -36,5 +37,9 @@ GPIO.add_event_detect(INPUT_4, GPIO.RISING, callback=my_callback_4, bouncetime=3
 
 try:
     print "press something"
+    while True:
+        print "hello"
+        time.sleep(1)
 except KeyboardInterrupt:
     GPIO.cleanup()  # clean up GPIO on CTRL+C exit
+GPIO.cleanup()  # clean up GPIO on normal exit
