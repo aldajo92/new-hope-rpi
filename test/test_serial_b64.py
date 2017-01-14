@@ -35,7 +35,7 @@ try:
     string_send += "\r\n"
     print "sending..."
     serial_port.write(string_send)
-    # print string_send
+    print string
 
 except KeyboardInterrupt:
     print "closing..."
