@@ -7,17 +7,31 @@ BAUD = 460800
 serial_port = None
 
 thread = None
-image_buffer = ""
 
 
+def convert_image(data):
+    size = int(data)
+    image_buffer = ""
+    while True:
+        image_buffer = image_buffer + serial_port.read(1)
+        if len(image_buffer) == size:
+            break
 
+    print str(len(image_buffer))
+
+
+def parse_command(command):
+    local_data = command.split('\n')
+    s_command = local_data[0].split("|")
+    if s_command[0] == "IMG":
+        convert_image(s_command[1])
 
 
 def read_from_port():
     while True:
         reading = serial_port.readline()
         if reading != "" and reading != " ":
-            print reading
+            parse_command(reading)
 
 
 def main():

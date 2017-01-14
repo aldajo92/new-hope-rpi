@@ -3,8 +3,7 @@ import time
 import base64
 
 PORT = "/dev/ttyAMA0"
-BAUD = 460800
-# BAUD = 230400
+BAUD = 460800 #230400
 
 
 def connect():
@@ -26,7 +25,7 @@ try:
     # img_str += "\r\n"
     print "sending..."
     serial_port.write("IMG|" + str(len(img_str)) + "\n")
-    # serial_port.write(img_str)
+    serial_port.write(img_str)
     print img_str
 
 except KeyboardInterrupt:
