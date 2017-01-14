@@ -24,12 +24,12 @@ serial_port = connect()
 serial_port.flushInput()
 serial_port.flushOutput()
 string = to_b_64(read_image('messi'))
-splitted = string.split("\n")
+string_split = string.split("\n")
 
 try:
-    serial_port.write(string)
-    # for s in splitted:
-    #     serial_port.write(s + "\r\n")
+    # serial_port.write(string)
+    for s in string_split:
+        serial_port.write(s + "\r\n")
     #     # print s
 
 except KeyboardInterrupt:
